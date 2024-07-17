@@ -1,7 +1,7 @@
 name: test my publish
 on: push
 jobs:
- use:
+ vcpkg:
   runs-on: windows-latest
   steps:
   - uses: davidkhala/setup-vcpkg@main
