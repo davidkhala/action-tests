@@ -2,7 +2,7 @@
 # For documentation, or to provide feedback, visit https://github.com/github/ossar-action
 name: github/ossar-action
 
-on: workflow_dispatch
+on: push
 
 jobs:
   OSSAR-Scan:
@@ -18,7 +18,7 @@ jobs:
     - name: Install .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.201'
+        dotnet-version: '6.0.x'
 
       # Run open source static analysis tools
     - name: Run OSSAR
