@@ -1,0 +1,7 @@
+on: push
+jobs:
+  rootless-docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ScribeMD/rootless-docker@main
+    
