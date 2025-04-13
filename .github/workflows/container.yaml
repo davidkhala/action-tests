@@ -3,5 +3,19 @@ jobs:
   rootless-docker:
     runs-on: ubuntu-latest
     steps:
-    - uses: ScribeMD/rootless-docker@main
+    - uses: davidkhala/rootless-docker@main
+    - run: docker ps 
+    - run: docker context ls
+  docker-official:
+    strategy:
+        fail-fast: false
+        matrix:
+            os: [ubuntu-latest, macos-latest, windows-latest]
+            rootless: [true, false]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: docker/setup-docker-action@master
+      with:
+        rootless: ${{ matrix.rootless }}
+    - run: docker context ls
     
